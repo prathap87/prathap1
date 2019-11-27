@@ -6,21 +6,7 @@ pipeline {
     stage('Git-Checkout') {
       steps {
         echo "Checking out from Git Repo";
-        git 'https://github.com/asha-afzal/pipeline.git'
-      }
-    }
-
-    stage('Build') {
-      steps {
-        echo "Building the checked out project";
-        bat label: '', script: 'Build.bat'
-      }
-    }
-
-    stage('Unit') {
-      steps {
-        echo "Running unit test";
-        bat label: '', script: 'Unit.bat'
+        git 'https://github.com/prathap87/prathap1.git'
       }
     }
 
@@ -35,6 +21,13 @@ pipeline {
       steps {
         echo "Running Quality check";
         bat label: '', script: 'Quality.bat'
+      }
+    }
+  
+  stage('Security check') {
+      steps {
+        echo "Running security check";
+        bat label: '', script: 'security.bat'
       }
     }
 
